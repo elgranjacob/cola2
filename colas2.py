@@ -24,13 +24,16 @@ class Servicios:
         num_atencion = len(self.colas[numero_servicio].cola1) + 1
         self.colas[numero_servicio].encolar(num_atencion)
         print(f"El cliente {num_atencion} va en la cola {numero_servicio}")
+        print(f"La cola {numero_servicio}: {self.colas[numero_servicio].cola1}")
 
     def atencion_cliente(self, numero_servicio):
         if numero_servicio in self.colas and not self.colas[numero_servicio].vacia():
             numero_atencion = self.colas[numero_servicio].desencolar()
             print(f"El cliente {numero_atencion} de la cola {numero_servicio} ya fue atendido")
+            print(f"La cola {numero_servicio}: {self.colas[numero_servicio].cola1}")
         else:
             print(f"No hay clientes para atender en el servicio {numero_servicio}")
+           
 
 def main():
     servicio = Servicios()
